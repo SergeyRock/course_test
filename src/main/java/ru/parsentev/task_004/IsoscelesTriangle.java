@@ -21,6 +21,15 @@ public class IsoscelesTriangle extends Triangle {
 
     @Override
     public boolean exists() {
-       return super.exists();
+        boolean exists = super.exists();
+
+        if (exists) {
+            double a = first.distanceTo(second);
+            double b = first.distanceTo(third);
+            double c = second.distanceTo(third);
+            return a == b || b == c || a == c;
+        }
+
+        return false;
     }
 }
