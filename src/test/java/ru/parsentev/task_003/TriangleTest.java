@@ -5,6 +5,7 @@ import org.junit.Test;
 import ru.parsentev.task_002.Point;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.*;
 
 /**
@@ -13,7 +14,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class TriangleTest {
     @Test
     public void calculateArea() {
@@ -21,7 +22,7 @@ public class TriangleTest {
         Point second = new Point(0, 2);
         Point third = new Point(2, 0);
         double result = new Triangle(first, second, third).area();
-        assertThat(result, is(2d));
+        assertThat(result, closeTo(2d, 0.000005));
     }
 
     @Test

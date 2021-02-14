@@ -26,10 +26,25 @@ public class Triangle {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        try {
+            return area() > 0;
+        } catch (Exception e) {
+            return false;
+        }
     }
-
     public double area() {
-        throw new UnsupportedOperationException();
+        double a = first.distanceTo(second);
+        double b = first.distanceTo(third);
+        double c = second.distanceTo(third);
+
+        // use Geron formula
+        double p = (a + b + c) / 2.0;
+        double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
+        if (s == 0.0) {
+            throw new java.lang.IllegalStateException("Triangle is not exist");
+        }
+
+        return s;
     }
 }
