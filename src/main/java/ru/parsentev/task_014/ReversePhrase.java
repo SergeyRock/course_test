@@ -3,6 +3,10 @@ package ru.parsentev.task_014;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -20,6 +24,13 @@ public class ReversePhrase {
     }
 
     public String reverse() {
-        throw new UnsupportedOperationException();
+        String[] words = line.split(" ");
+        String[] reversedWords = new String[words.length];
+
+        for (int i = 0, j = words.length - 1; i < words.length; i++, j--) {
+            reversedWords[j] = words[i];
+        }
+
+        return String.join(" ", reversedWords);
     }
 }
