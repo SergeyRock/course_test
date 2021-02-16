@@ -19,6 +19,17 @@ public class Brackets {
     }
 
     public boolean isCorrect() {
-        throw new UnsupportedOperationException();
+        int leftBracketsCount = 0;
+        int rightBracketsCount = 0;
+        for (int i = 0; i < line.length(); i++) {
+            char aChar = line.charAt(i);
+            if (aChar == '(') {
+                leftBracketsCount++;
+            } else if (aChar == ')') {
+                rightBracketsCount++;
+            }
+        }
+
+        return leftBracketsCount == rightBracketsCount;
     }
 }
